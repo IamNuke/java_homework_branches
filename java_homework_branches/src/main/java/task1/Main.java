@@ -15,7 +15,6 @@ public class Main {
     }
 
     private static void removeTheEven(ArrayList<Integer> arrayList) {
-
         arrayList.removeIf(x -> x % 2 == 0);
     }
 }

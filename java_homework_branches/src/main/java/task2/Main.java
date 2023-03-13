@@ -14,7 +14,6 @@ public class Main {
         int max = Collections.max(arrayList);
         int min = Collections.min(arrayList);
         double mean = getAverage(arrayList);
-
         System.out.printf("Maximum %d; Minimum %d; Arithmetic mean %f", max, min, mean);
     }
 

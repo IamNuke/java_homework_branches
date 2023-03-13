@@ -12,7 +12,6 @@ public class Main {
         arrayList.add("dfg");
         arrayList.add("3");
         arrayList.add("1");
-
         System.out.println(arrayList);
         removeInteger(arrayList);
         System.out.println(arrayList);
