@@ -1,22 +1,31 @@
 package task2;
 
+
+import java.io.FileWriter;
 import java.util.Scanner;
+
 public class Main {
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in); // Объявляем Scanner
-        System.out.println("Enter year:");
-        int year = input.nextInt();
-        if (isLeapYear(year)) {
-            System.out.println("Yes");
+
+    public static void main(String[] args){
+        System.out.println("Enter word:");
+        Scanner input = new Scanner(System.in);
+        String word = input.next();
+        String text = repeatWord(word);
+        try {
+            FileWriter textFile = new FileWriter("textFile.txt");
+            textFile.write(text);
+            textFile.flush();
+        }catch (Exception e){
+            System.out.println("Error");
         }
-        else{
-            System.out.println("No");
-        }
+
     }
-
-    private static boolean isLeapYear(int year) {
-
-        return  ((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0));
-
+    private static String repeatWord(String word) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i <100 ; i++) {
+            sb.append(word);
+        }
+        return  sb.toString();
     }
 }
+

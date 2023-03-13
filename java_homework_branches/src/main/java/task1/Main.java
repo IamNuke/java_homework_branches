@@ -1,40 +1,32 @@
 package task1;
 
 import java.util.Scanner;
+
 public class Main {
+
     public static void main(String[] args) {
-        int[] numArr = inputArray();
-        findMaxMin(numArr);
+        System.out.println("Enter word:");
+        Scanner input = new Scanner(System.in);
+        String word = input.next();
+        if (isPalindrome(word)) {
+            System.out.print("Yes");
+        }
+        else {
+            System.out.print("No");
+        }
+
     }
 
-    private static void findMaxMin(int[] numArr) {
+    private static boolean isPalindrome(String word) {
 
-        int max = numArr[0];
-        int min = numArr[0];
-        for (int j : numArr) {
-            if (j > max) {
-                max = j;
-            }
-            if (j < min) {
-                min = j;
+        for (int i = 0; i < word.length()/2; i++) {
+            if (word.charAt(i) != word.charAt(word.length()-i-1)){
+                return false;
             }
         }
-        System.out.printf("Maximum : %d.", max );
-        System.out.println();
-        System.out.printf("Minimum: %d.", min );
+        return true;
     }
 
-    private static int[] inputArray() {
-
-        Scanner input = new Scanner(System.in); // Объявляем Scanner
-        System.out.println("Enter array elements:");
-        String str = input.nextLine();
-        String[] strArr = str.split(" ");
-        int[] numArr = new int[strArr.length];
-        for (int i = 0; i < strArr.length; i++) {
-            numArr[i] = Integer.parseInt(strArr[i]);
-        }
-        return  numArr;
-    }
 
 }
+
