@@ -1,32 +1,21 @@
 package task1;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
-
     public static void main(String[] args) {
-        System.out.println("Enter word:");
-        Scanner input = new Scanner(System.in);
-        String word = input.next();
-        if (isPalindrome(word)) {
-            System.out.print("Yes");
+        Random random = new Random();
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            arrayList.add(random.nextInt(100));
         }
-        else {
-            System.out.print("No");
-        }
-
+        System.out.println(arrayList);
+        removeTheEven(arrayList);
+        System.out.println(arrayList);
     }
 
-    private static boolean isPalindrome(String word) {
+    private static void removeTheEven(ArrayList<Integer> arrayList) {
 
-        for (int i = 0; i < word.length()/2; i++) {
-            if (word.charAt(i) != word.charAt(word.length()-i-1)){
-                return false;
-            }
-        }
-        return true;
+        arrayList.removeIf(x -> x % 2 == 0);
     }
-
-
 }
-

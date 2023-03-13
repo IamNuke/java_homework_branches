@@ -1,31 +1,31 @@
 package task2;
 
 
-import java.io.FileWriter;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
-
-    public static void main(String[] args){
-        System.out.println("Enter word:");
-        Scanner input = new Scanner(System.in);
-        String word = input.next();
-        String text = repeatWord(word);
-        try {
-            FileWriter textFile = new FileWriter("textFile.txt");
-            textFile.write(text);
-            textFile.flush();
-        }catch (Exception e){
-            System.out.println("Error");
+    public static void main(String[] args) {
+        Random random = new Random();
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            arrayList.add(random.nextInt(100));
         }
+        System.out.println(arrayList);
+        int max = Collections.max(arrayList);
+        int min = Collections.min(arrayList);
+        double mean = getAverage(arrayList);
 
+        System.out.printf("Maximum %d; Minimum %d; Arithmetic mean %f", max, min, mean);
     }
-    private static String repeatWord(String word) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i <100 ; i++) {
-            sb.append(word);
+
+    private static double getAverage(ArrayList<Integer> list) {
+        long sum = 0;
+        for (int i: list) {
+            sum += i;
         }
-        return  sb.toString();
+        return list.size() > 0 ? (double) sum / list.size() : 0;
     }
+
+
 }
 

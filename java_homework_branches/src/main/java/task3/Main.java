@@ -1,44 +1,35 @@
 package task3;
 
-import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Main {
-
     public static void main(String[] args) {
-        int[] numArr = inputArray();
-        System.out.println("Enter number:");
-        Scanner input = new Scanner(System.in);
-        int number = input.nextInt();
-        int[] newArr = processArray(numArr, number);
-        for (int j : newArr) {
-            System.out.printf("%3d", j);
-        }
+
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add("asd");
+        arrayList.add("4");
+        arrayList.add("1.2");
+        arrayList.add("dfg");
+        arrayList.add("3");
+        arrayList.add("1");
+
+        System.out.println(arrayList);
+        removeInteger(arrayList);
+        System.out.println(arrayList);
     }
 
-    private static int[] processArray(int[] numArr, int number) {
-        int tmp;
-        for (int i = 0; i < numArr.length; i++){
-            if (number == numArr[i]){
-                for (int j = i; j < numArr.length-1; j++){
-                    tmp = numArr[j];
-                    numArr[j] = numArr[j+1];
-                    numArr[j+1] = tmp;
-                }
+    private static void removeInteger(ArrayList<String> arrayList) {
+        int num;
+        for (int i = 0; i < arrayList.size(); i++) {
+            try {
+                num = Integer.parseInt(arrayList.get(i));
+                arrayList.remove(i);
+                i--;
+
+            }catch (Exception e){
+                System.out.println(arrayList.get(i) + " not an integer.");
             }
         }
-        return numArr;
-    }
 
-    private static int[] inputArray() {
-
-        Scanner input = new Scanner(System.in);
-        System.out.println("Enter array elements:");
-        String str = input.nextLine();
-        String[] strArr = str.split(" ");
-        int[] numArr = new int[strArr.length];
-        for (int i = 0; i < strArr.length; i++) {
-            numArr[i] = Integer.parseInt(strArr[i]);
-        }
-        return  numArr;
     }
 }
