@@ -1,5 +1,6 @@
 package task2;
 
+
 import java.io.FileWriter;
 import java.util.Scanner;
 
@@ -27,3 +28,4 @@ public class Main {
         return  sb.toString();
     }
 }
+
